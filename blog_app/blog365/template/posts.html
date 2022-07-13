@@ -1,0 +1,71 @@
+{%extends 'base.html' %}
+
+{%block title%} POST {%endblock%}
+
+{%block body%}
+
+
+<div class="container-custom" style="margin: 20px;">
+
+
+    <div class="row">
+        <div class="col s12 m10">
+
+
+            <h3>{{pst.title}}</h3>
+
+            <p>( {{pst.cat.title}} )  - {{pst.add_date}}</p>
+
+            <img src="/media/{{pst.image}}" class="responsive-img" alt="">
+
+            <br>
+            <p>
+                {{pst.content|safe}}
+            </p>
+
+        </div>
+
+        <div class="col s12 m2">
+
+
+            {% for cat in cats %}
+
+            <div class="card item" style="margin-left:10px; width: 225px;">
+
+                <div class="img-container">
+
+                    <img src="/media/{{cat.image}}" class="responsive-img" style="height:150px; width: 225px;" alt="">
+
+                </div>
+                <div class="card-content center-align" style="margin-top: -10px;">
+
+                    <b>
+                        {{cat.title}}
+                    </b>
+
+                    <!-- <p class="truncate">{{cat.description}}</p> -->
+                    <div class="container center-align mt20" style="margin-top: 10px;margin-bottom:-10px;">
+                        <a href="/category/{{cat.url}}" class="btn btn-small bg-primary">VIEW</a>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            {%endfor%}
+
+
+        </div>
+    </div>
+
+</div>
+
+
+{%endblock%}
+         
+    
+
+
+
+

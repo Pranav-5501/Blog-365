@@ -1,0 +1,10 @@
+--> link for custom admin panel
+    https://github.com/MaistrenkoAnton/django-material-admin
+
+--> tiny mce
+    https://www.tiny.cloud/docs/
+
+    # to use rich text in post/content
+
+-->css
+    https://materializecss.com/getting-started.html

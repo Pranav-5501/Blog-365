@@ -1,0 +1,65 @@
+{%extends 'base.html'%}
+
+{%block title%}Contact | Blog365{%endblock%}
+
+{%block body%}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Goldman&display=swap" rel="stylesheet">
+
+<div class="container card white" style="padding: 5px; margin:auto; margin-top: 40px; margin-bottom: 60px;">
+    <div class="row">
+        <form action="sendmail/" method="post" class="col s12">
+            {% csrf_token %}
+            <div class="row center-align"><h4 style="font-family: 'Akaya Kanadaka', cursive; font-size: 50px;">Contact Us</h4></div>
+            <div class="col s6">
+                {% load static %}
+                <img src="{% static 'img/cont_us.jpg'%}" class="responsive-img" style="margin-top: -40px;" alt="">
+            </div>
+            <div class="col s6">
+            <div class="row">
+                <div class="input-field col s12 form-group">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="icon_prefix" type="text" name="name" class="validate">
+                    <label for="icon_prefix">Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 form-group">
+                    <i class="material-icons prefix">email</i>
+                    <input id="icon_email" type="email" name="email" class="validate">
+                    <label for="icon_email">Email</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 form-group">
+                    <i class="material-icons prefix">subject</i>
+                    <input id="icon_subject" type="text" name="subject" class="validate">
+                    <label for="icon_subject">Subject</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 form-group">
+                    <i class="material-icons prefix">message</i>
+                  <textarea id="textarea1" class="materialize-textarea" name="message" rows="10"></textarea>
+                  <label for="icon_message">Message</label>
+                </div>
+              </div>
+              <div class="row">
+                <!-- <div class="col s12 center-align form-group">
+                    <input type="submit" class="btn waves-effect waves-light bg-primary" value="Send" name="sendmail">
+                </div> -->
+                    <div class="col s12 center-align form-group">
+                        <button class="btn waves-effect waves-light bg-primary" type="submit" name="action">Submit
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+              </div>
+            </div>
+            
+        </form>
+    </div>
+</div>
+
+{%endblock%}

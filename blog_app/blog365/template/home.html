@@ -1,0 +1,78 @@
+{%extends 'base.html'%}
+
+{%block title%}HOME | Blog365{%endblock%}
+
+{%block body%}
+
+<div class="container-custom" style="margin:20px ;">
+
+
+    <!-- Set up your HTML -->
+    <div class="owl-carousel">
+
+
+        {% for cat in cats %}
+
+        <div class="card item" style="margin-left:10px;">
+
+            <div class="img-container">
+
+                <img src="/media/{{cat.image}}" class="responsive-img" style="height: 250px;" alt="">
+
+            </div>
+            <div class="card-content">
+
+                <div class="card-title">
+                    {{cat.title}}
+                </div>
+
+                <p class="truncate">{{cat.description}}</p>
+                <div class="container center-align mt20">
+                    <a href="/category/{{cat.url}}" class="btn bg-primary">VIEW</a>
+                </div>
+
+            </div>
+
+
+        </div>
+
+        {%endfor%}
+
+    </div>
+
+
+</div>
+    
+<div class="container-fluid" style="margin:40px;">
+    <div class="row">
+        <div class="col s12">
+            {% for p in Posts %}
+
+            <div class="card white  row">
+
+                <div class="col s12 m8">
+                    
+                    <h3>{{p.title}}</h3>
+                    {{p.content |truncatewords:150 | safe}}
+                    <p>{{p.add_date}}</p>
+                    <div class="mt10">
+                        <a href="/blog/{{p.url}}" class="btn  bg-primary ">Read More..</a>
+                    </div>
+                    <br>
+                </div>
+
+                <div class="col s12 m4 center-align">
+                    <img src="/media/{{p.image}}" class="responsive-img" style="margin: 30px;height: 250px; width: 400px;">
+
+                </div>
+
+            </div>
+
+            {%endfor%}
+        </div>
+    </div>
+</div>
+<br>
+
+
+{%endblock%}
